@@ -2,4 +2,4 @@
 
 #show: template
 
-About page.
+= Post listing
