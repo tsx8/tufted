@@ -1,6 +1,6 @@
 #import "../index.typ": template
 #show: template
 
-= Post 3
+= Post 2
 
 #lorem(200)
