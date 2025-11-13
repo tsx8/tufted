@@ -6,9 +6,9 @@
 
 == 2025
 
-- #link("1-normal-distribution/")[Post 1]
+- #link("1-normal-distribution/")[Normal Distribution]
 - #link("2-post")[Post 2]
 
-= 2024
+== 2024
 
 - #link("3-post")[Post 3]

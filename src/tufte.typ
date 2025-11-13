@@ -1,4 +1,6 @@
 #import "math.typ": template-math
+#import "refs.typ": template-refs
+#import "notes.typ": template-notes
 
 #let make-header(links) = html.elem(
   "header",
@@ -10,10 +12,11 @@
   ),
 )
 
-
 #let tufte-website(header-links: none, content) = {
-  // Apply math hack to render as SVG
+  // Apply styling
   show: template-math
+  show: template-refs
+  show: template-notes
 
   html.elem("html", {
     // Head
