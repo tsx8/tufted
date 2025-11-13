@@ -1,8 +1,9 @@
 #let template-notes(content) = {
   show footnote: it => {
     if target() == "html" {
-      html.elem("sup", attrs: (class: "footnote-ref"), it.numbering)
-      html.elem("span", attrs: (class: "marginnote"), super(it.numbering) + [ ] + it.body)
+      let number = counter(footnote).display(it.numbering)
+      html.elem("sup", attrs: (class: "footnote-ref"), number)
+      html.elem("span", attrs: (class: "marginnote"), super(number) + [ ] + it.body)
     }
   }
   content
