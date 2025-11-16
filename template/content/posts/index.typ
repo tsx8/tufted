@@ -1,4 +1,4 @@
-#import "../index.typ": template
+#import "../index.typ": *
 #show: template
 
 = Posts

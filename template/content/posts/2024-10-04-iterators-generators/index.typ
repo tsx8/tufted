@@ -1,4 +1,4 @@
-#import "../index.typ": template
+#import "../index.typ": *
 #show: template
 
 = Iterators vs Generators in Python
@@ -42,6 +42,8 @@ The generator function produces the same results as our iterator class, but with
 == Memory Efficiency
 
 Both iterators and generators are lazy—they produce values on demand rather than storing them all in memory. This makes them ideal for working with large datasets or infinite sequences.#footnote[The `itertools` module provides powerful functions like `count()` and `cycle()` that create infinite iterators.] A generator that produces a billion numbers consumes minimal memory, while a list of a billion numbers would exhaust most systems.
+
+#figure(image("imgs/python.webp"), caption: [Four people holding a long python])
 
 == When to Use Each
 

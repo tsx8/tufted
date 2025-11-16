@@ -1,9 +1,13 @@
-#import "../index.typ": template
+#import "../index.typ": *
 #show: template
 
 = Monkeys vs Apes: Understanding the Difference
 
 When visiting a zoo or watching nature documentaries, it's easy to use "monkey" and "ape" interchangeably.#footnote[Both monkeys and apes belong to the order Primates, which includes over 500 species worldwide.] However, these terms describe two distinct groups of primates with fundamental differences.
+
+#margin-note(
+  image("imgs/gorilla.webp"),
+)
 
 == The Tail Tells the Tale
 

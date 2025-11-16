@@ -1,4 +1,4 @@
-#import "../index.typ": template
+#import "../index.typ": *
 #show: template
 
 #import "@preview/lilaq:0.5.0" as lq
