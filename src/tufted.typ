@@ -3,12 +3,10 @@
 #import "notes.typ": template-notes
 #import "figures.typ": template-figures
 
-#let make-header(links) = html.elem(
-  "header",
-  html.elem(
-    "nav",
+#let make-header(links) = html.header(
+  html.nav(
     for (href, title) in links {
-      html.elem("a", attrs: (href: href), title)
+      html.a(href: href, title)
     },
   ),
 )
@@ -20,35 +18,28 @@
   show: template-notes
   show: template-figures
 
-  html.elem("html", {
+  html.html({
     // Head
-    html.elem("head", {
-      html.elem("meta", attrs: ("charset": "UTF-8"))
-      html.elem("meta", attrs: (
-        "name": "viewport",
-        "content": "width=device-width, initial-scale=1",
-      ))
-      html.elem("title", title)
-      html.elem("link", attrs: (
-        "rel": "stylesheet",
+    html.head({
+      html.meta(charset: "utf-8")
+      html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
+      html.title(title)
+      html.link(
+        rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
-      ))
-      html.elem("link", attrs: ("rel": "stylesheet", "href": "/assets/style.css"))
+      )
+      html.link(rel: "stylesheet", href: "/assets/style.css")
     })
 
     // Body
-    html.elem(
-      "body",
-      {
-        // Add website header
-        make-header(header-links)
+    html.body({
+      // Add website header
+      make-header(header-links)
 
-        // Main content
-        html.elem(
-          "article",
-          html.elem("section", content),
-        )
-      },
-    )
+      // Main content
+      html.article(
+        html.section(content),
+      )
+    })
   })
 }
