@@ -1,11 +1,13 @@
 # Extract version from typst.toml
 VERSION := $(shell grep '^version = ' typst.toml | sed 's/version = "\(.*\)"/\1/')
 
+# Get the root directory of the project
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-# Create symlink to local package cache
-.PHONY: link link-macos link-linux link-windows
+# Define phony (non-file) targets
+.PHONY: link link-macos link-linux link-windows check build
 
+# Create symlink to local package cache
 link:
 ifeq ($(OS),Windows_NT)
 	$(MAKE) link-windows
@@ -32,3 +34,10 @@ link-windows:
 	if not exist "%LOCALAPPDATA%\typst\packages\preview\tufted" mkdir "%LOCALAPPDATA%\typst\packages\preview\tufted"
 	mklink /D "%LOCALAPPDATA%\typst\packages\preview\tufted\$(VERSION)" .
 
+# Check package for common issues
+check:
+	typst-package-check check
+
+# Build a zip archive for submission
+build:
+	zip -r tufted-${VERSION}.zip src/ template/ assets/ LICENSE README.md typst.toml
