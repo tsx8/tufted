@@ -13,4 +13,5 @@ keywords = ["cv", "poster", "document", "academic"]
 
 [template]
 path = "template"
-entrypoint = "config.typ"
+entrypoint = "content/index.typ"
+thumbnail = "assets/thumbnail.png"
