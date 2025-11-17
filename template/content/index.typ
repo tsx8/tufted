@@ -1,4 +1,3 @@
-#import "@preview/grayness:0.1.0": grayscale-image
 #import "../config.typ": *
 #show: template
 
