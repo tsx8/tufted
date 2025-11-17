@@ -34,10 +34,14 @@ link-windows:
 	if not exist "%LOCALAPPDATA%\typst\packages\preview\tufted" mkdir "%LOCALAPPDATA%\typst\packages\preview\tufted"
 	mklink /D "%LOCALAPPDATA%\typst\packages\preview\tufted\$(VERSION)" .
 
+clean:
+	rm -rf template/_site
+	find . -name ".DS_Store" -delete
+
 # Check package for common issues
 check:
 	typst-package-check check
 
 # Build a zip archive for submission
-build:
+build: clean
 	zip -r tufted-${VERSION}.zip src/ template/ assets/ LICENSE README.md typst.toml
