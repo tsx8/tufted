@@ -1,9 +1,15 @@
+#import "@preview/grayness:0.1.0": grayscale-image
 #import "../config.typ": *
 #show: template
 
 = `tufted`: A Simple Typst Website Template
 
 This package allows you to build a simple website with *pure* Typst. No dependencies required.
+
+#margin-note({
+  image("imgs/tufted-duck-female-with-duckling.webp")
+  image("imgs/tufted-duck-male.webp")
+})
 
 == Copy template
 
