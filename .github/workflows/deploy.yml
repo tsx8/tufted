@@ -8,18 +8,16 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
+  # Build the site
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: typst-community/setup-typst@v4
       - uses: actions/setup-go@v6
-      - run: go install github.com/tdewolff/minify/v2/cmd/minify@latest
+      - run: go install github.com/tdewolff/minify/v2/cmd/minify@v2.24.7
+      # NOTE: Remove `cd template` step when deploying template from Typst Universe
       - run: |
           make link
           cd template
@@ -30,6 +28,7 @@ jobs:
         with:
           path: template/_site_min
 
+  # Publish to GitHub Pages
   deploy:
     runs-on: ubuntu-latest
     needs: build
