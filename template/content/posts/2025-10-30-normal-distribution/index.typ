@@ -38,7 +38,7 @@ This formula, developed by Gauss in his astronomical work @gauss1809theoria, has
 
 == Why It Matters
 
-The normal distribution's importance stems from the Central Limit Theorem#footnote[The Central Limit Theorem requires that the random variables being summed are independent and identically distributed with finite variance. The convergence to normality improves as the number of variables increases.], which states that the sum of many independent random variables tends toward a normal distribution, regardless of the original distribution. This explains why so many natural phenomena follow this pattern.
+The normal distribution's importance stems from the Central Limit Theorem,#footnote[The Central Limit Theorem requires that the random variables being summed are independent and identically distributed with finite variance. The convergence to normality improves as the number of variables increases.] which states that the sum of many independent random variables tends toward a normal distribution, regardless of the original distribution. This explains why so many natural phenomena follow this pattern.
 
 In practice, the normal distribution enables:
 - Statistical inference and hypothesis testing
@@ -48,7 +48,7 @@ In practice, the normal distribution enables:
 
 == Real-World Applications
 
-Scientists use normal distributions to model everything from IQ scores to particle velocities in gases. Engineers apply it in reliability analysis and signal processing. Financial analysts rely on it for portfolio theory and option pricing, though real market returns often deviate from normality#footnote[Financial returns often exhibit "fat tails" (higher probability of extreme events) and skewness compared to the normal distribution. This has important implications for risk management and the pricing of derivatives.].
+Scientists use normal distributions to model everything from IQ scores to particle velocities in gases. Engineers apply it in reliability analysis and signal processing. Financial analysts rely on it for portfolio theory and option pricing, though real market returns often deviate from normality.#footnote[Financial returns often exhibit "fat tails" (higher probability of extreme events) and skewness compared to the normal distribution. This has important implications for risk management and the pricing of derivatives.]
 
 Understanding the normal distribution provides a foundation for statistical thinking and data analysis, making it an essential tool for researchers, analysts, and decision-makers across countless fields.
 

@@ -78,7 +78,28 @@ header nav a:focus-visible,
     }
 }
 
-/* TODO: remove hack for math zooming */
+/* TODO: emove hack for math zooming */
 figure[role="math"] {
     zoom: 1.4;
+}
+
+/* TODO: Think about hovering margin notes */
+@media (max-width: 760px) {
+
+    /* Disable collapsing of marginnotes on narrow screens */
+    .marginnote {
+        display: block;
+        float: none;
+        position: static;
+        width: 90%;
+        margin: 0.5em 0 0.5em auto;
+    }
+
+    /* Limit image width on narrow screens */
+    img,
+    svg {
+        max-width: calc(760px / 3);
+        margin: 0 auto;
+        display: block;
+    }
 }
