@@ -14,8 +14,8 @@ Research in statistical evidence and analytical design for information visualiza
 
 
 == Experience
-- *1977--1999*: Professor Emeritus, Yale University. Departments of Political Science, Statistics, and Computer Science.
 - *1983--Present*: Founder & Publisher, Graphics Press. Independent publishing house specializing in information design and data visualization.
+- *1977--1999*: Professor Emeritus, Yale University. Departments of Political Science, Statistics, and Computer Science.
 - *1967--1977*: Instructor, Princeton University. Woodrow Wilson School of Public and International Affairs.
 
 == Artworks
