@@ -1,30 +1,34 @@
-:root {
-    --note-highlight-color: rgba(0, 0, 0, 0.06);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --note-highlight-color: rgba(255, 255, 255, 0.10);
-    }
-}
-
 /* Highlight the margin note when the footnote reference is hovered */
 .footnote-ref:hover+.marginnote {
-    background-color: var(--note-highlight-color);
-    box-shadow: 0 0 0 5px var(--note-highlight-color);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    border-radius: 1px;
+    background-color: var(--highlight-weak);
+    box-shadow: 0 0 0 5px var(--highlight-weak);
+    border-radius: var(--radius-sm);
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 /* Highlight the footnote reference when the margin note is hovered */
 .footnote-ref:has(+ .marginnote:hover) {
-    background-color: var(--note-highlight-color);
-    box-shadow: 0 0 0 5px var(--note-highlight-color);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    border-radius: 10px;
+    background-color: var(--highlight-strong);
+    border-radius: var(--radius-sm);
+    animation: pulse-strong 1.5s ease-in-out infinite;
 }
 
 a.footnote-ref-link {
     /* Remove footnote link underline */
     background-image: none;
+    text-shadow: none !important;
+}
+
+
+@keyframes pulse-strong {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 5px var(--highlight-strong);
+    }
+
+    50% {
+        box-shadow: 0 0 0 7px var(--highlight-strong);
+    }
+
 }

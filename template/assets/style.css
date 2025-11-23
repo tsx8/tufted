@@ -4,6 +4,12 @@
 @import url("tiles.css");
 @import url("notes.css");
 
+:root {
+    --highlight-weak: rgba(128, 128, 128, 0.2);
+    --highlight-strong: rgba(128, 128, 128, 0.4);
+    --radius-sm: 0.2rem;
+}
+
 /* base font size */
 html {
     font-size: 10pt;
@@ -16,7 +22,7 @@ svg {
 }
 
 
-/* TODO: emove hack for math zooming */
+/* TODO: Remove hack for math zooming */
 figure[role="math"] {
     zoom: 1.4;
 }

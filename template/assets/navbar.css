@@ -17,7 +17,7 @@ header nav a:visited {
     font-size: 1.5rem;
     padding: 0.2em 0.4em;
     margin-top: 1em;
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     transition: background-color 120ms ease;
 }
 
@@ -28,17 +28,6 @@ header nav a:hover,
 header nav a:focus-visible,
 .post-tile a:hover,
 .post-tile a:focus-visible {
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--highlight-weak);
     outline: none;
-}
-
-
-@media (prefers-color-scheme: dark) {
-
-    header nav a:hover,
-    header nav a:focus-visible,
-    .post-tile a:hover,
-    .post-tile a:focus-visible {
-        background: rgba(255, 255, 255, 0.10);
-    }
 }
