@@ -51,4 +51,3 @@ build: clean
 
 copy-readme:
 	cp README.md template/assets/
-	cp assets/devices.webp template/assets/

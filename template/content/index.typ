@@ -2,6 +2,8 @@
 #import "@preview/cmarker:0.1.7"
 #show: template
 
+= Tufted
+
 #tufted.margin-note({
   image("imgs/tufted-duck-female-with-duckling.webp")
   image("imgs/tufted-duck-male.webp")
@@ -18,7 +20,7 @@
   read("../assets/README.md"),
   scope: (
     image: (source, alt: none, format: auto) => figure(image(
-      "../" + source,
+      "../../" + source, // Modify paths for images
       alt: alt,
       format: format,
     )),

@@ -8,7 +8,7 @@ repository = "https://github.com/vsheg/tufted"
 license = "MIT"
 description = "Responsive web layout with wide margins, elegant sidenotes, and restrained typography."
 compiler = "0.14.0"
-exclude = ["tests", "assets/devices.webp"]
+exclude = ["tests"]
 categories = ["layout", "utility"]
 keywords = ["website"]
 
