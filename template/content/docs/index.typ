@@ -4,6 +4,6 @@
 = Docs
 
 - #link("01-quick-start/", "Quick Start")
-// TODO: Template modification
-// TODO: Applying CSS custom styles
+- #link("02-configuration/", "Configuration")
+- #link("03-styling/", "Styling")
 - #link("04-deploy/", "Deployment")

@@ -1,5 +1,5 @@
 #import "../index.typ": template, tufted
-#show: template
+#show: template.with(title: "Quick Start")
 
 = Quick Start
 
