@@ -3,26 +3,38 @@
 #import "notes.typ": template-notes
 #import "figures.typ": template-figures
 #import "layout.typ": full-width, margin-note
+#import "links.typ": template-links
+#import "metadata.typ": metadata
 
-#let make-header(links) = html.header(
-  if links != none {
-    html.nav(
-      for (href, title) in links {
-        html.a(href: href, title)
-      },
-    )
-  },
-)
-
+/// Tufted 博客模板的主包装函数。
+///
+/// 用于生成完整的 HTML 页面结构，包含 SEO 元数据、CSS/JS 资源加载以及页眉页脚布局。
 #let tufted-web(
-  header-links: none,
-  title: "Tufted",
-  lang: "en",
-  css: (
-    "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
-    "/assets/tufted.css",
-    "/assets/custom.css",
-  ),
+  header-links: (:),
+
+  // Meta data
+  title: "",
+  author: none,
+  description: "",
+  lang: "zh",
+  date: none,
+  website-title: "",
+  website-url: none,
+
+  // For SEO
+  image-path: none,
+
+  // For RSS
+  feed-dir: (),
+
+  // Custom header and footer
+  header-elements: (),
+  footer-elements: (),
+
+  // Custom CSS and JS Scripts
+  css: ("/assets/custom.css",),
+  js-scripts: (),
+
   content,
 ) = {
   // Apply styling
@@ -30,6 +42,7 @@
   show: template-refs
   show: template-notes
   show: template-figures
+  show: template-links
 
   set text(lang: lang)
 
@@ -38,25 +51,83 @@
     {
       // Head
       html.head({
-        html.meta(charset: "utf-8")
-        html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
-        html.title(title)
+        // All metadata
+        metadata(
+          title: title,
+          author: author,
+          description: description,
+          lang: lang,
+          date: date,
+          website-title: website-title,
+          website-url: website-url,
+          image-path: image-path,
+          feed-dir: feed-dir,
+        )
 
-        // Stylesheets
-        for (css-link) in css {
+        // load CSS
+        let base-css = (
+          "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
+          "/assets/tufted.css",
+          "/assets/theme.css",
+        )
+        for (css-link) in (base-css + css).dedup() {
           html.link(rel: "stylesheet", href: css-link)
+        }
+
+        // load JS scripts
+        let base-js = (
+          "/assets/code-blocks.js",
+          "/assets/format-headings.js",
+          "/assets/theme-toggle.js",
+          "/assets/marginnote-toggle.js",
+        )
+        for (js-src) in (base-js + js-scripts).dedup() {
+          html.script(src: js-src)
         }
       })
 
       // Body
       html.body({
-        // Add website header
-        make-header(header-links)
+        // Custom header elements (site header, not navigation)
+        html.header(
+          class: "site-header",
+          {
+            for (i, element) in header-elements.enumerate() {
+              element
+              if i < header-elements.len() - 1 {
+                html.br()
+              }
+            }
+          },
+        )
+
+        // Add website navigation
+        html.header(
+          class: "site-header",
+          if header-links != none and header-links.len() > 0 {
+            html.nav(
+              class: "site-nav",
+              for (href, title) in header-links {
+                html.a(href: href, title)
+              },
+            )
+          }
+        )
 
         // Main content
         html.article(
           html.section(content),
         )
+
+        // Custom footer elements
+        html.footer({
+          for (i, element) in footer-elements.enumerate() {
+            element
+            if i < footer-elements.len() - 1 {
+              html.br()
+            }
+          }
+        })
       })
     },
   )

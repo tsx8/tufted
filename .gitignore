@@ -1,0 +1,6 @@
+*
+!LICENSE
+!*.typ
+!README.md
+!typst.toml
+!.gitignore
